@@ -23,7 +23,6 @@ import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.O;
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS;
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.PUNC;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-
 import eu.excitementproject.eop.common.component.distance.DistanceCalculation;
 import eu.excitementproject.eop.common.component.distance.DistanceComponentException;
 import eu.excitementproject.eop.common.component.distance.DistanceValue;
@@ -41,6 +40,7 @@ import eu.excitementproject.eop.core.component.lexicalknowledge.wikipedia.WikiEx
 import eu.excitementproject.eop.core.component.lexicalknowledge.wikipedia.WikiLexicalResource;
 import eu.excitementproject.eop.core.component.lexicalknowledge.wikipedia.it.WikiLexicalResourceIT;
 import eu.excitementproject.eop.core.component.lexicalknowledge.wordnet.WordnetLexicalResource;
+import eu.excitementproject.eop.core.component.lexicalknowledge.catvar.CatvarLexicalResource;
 import eu.excitementproject.eop.core.component.lexicalknowledge.germanet.GermaNetWrapper;
 import eu.excitementproject.eop.core.utilities.dictionary.wordnet.WordNetRelation;
 import eu.excitementproject.eop.common.utilities.Utils;
@@ -233,6 +233,12 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 			    		}
 		    		}
 	    		}
+    			
+	    		else if (instance.equals("catvar")) {
+	    	    	NameValueTable instanceNameValueTable = config.getSubSection(this.getClass().getCanonicalName(), instance);
+	    			String cvfile = instanceNameValueTable.getString("path");
+	    	    	initializeEnglishCatvar(cvfile);
+	    		}
 	    		
     		}
     		
@@ -370,6 +376,13 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 	    	}
 	    		
     	}
+		
+		if (resources != null && resources.containsKey("catvar")){
+			
+	    	String cvfile = resources.get("catvar");	    	
+	    	initializeEnglishCatvar(cvfile);
+			
+		}
     		
 		logger.info("done.");
     	
@@ -677,7 +690,7 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 
                                     // it uses the PoS to look for the relations in the lexical resource
                 					lexR != null && lexR.size() > 0 &&
-                						source.get(i-1).getPos().getType().getName().equals(target.get(j-1).getPos().getType().getName()) && 
+                						//source.get(i-1).getPos().getType().getName().equals(target.get(j-1).getPos().getType().getName()) && 
                 						getRulesFromResource(getTokenBaseForm(source.get(i-1)), new ByCanonicalPartOfSpeech(source.get(i-1).getPos().getType().getShortName()),
                 								getTokenBaseForm(target.get(j-1)), new ByCanonicalPartOfSpeech(target.get(j-1).getPos().getType().getShortName())))
         							
@@ -863,6 +876,31 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
     	logger.info("done.");
 	
 	}
+    
+    /**
+     * Initialize English Catvar
+     * 
+     * @param cvpath
+     */
+    private void initializeEnglishCatvar(String cvpath) {
+		logger.info("Looking for Catvar at " + cvpath);
+		
+		File cvfile = new File(cvpath);
+		
+		try {
+			@SuppressWarnings("rawtypes")
+			LexicalResource resource = new CatvarLexicalResource(cvfile);
+			lexR.add(resource);
+			
+		} catch (LexicalResourceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+    	logger.info("done.");
+		
+	}
+
     
     
     /**

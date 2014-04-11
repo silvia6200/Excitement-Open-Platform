@@ -41,8 +41,8 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- The linguistic annotation pipeline to preprocess the data to be annotated: [OpenNLPTaggerEN|TreeTaggerEN] -->
 		<!-- Differently to OpenNLPTagger, TreeTagger can produce the lemma and it is the pipeline to be
 		used when FixedWeightLemmaEditDistance is selected. Be sure to have TreeTagger installed before using it -->
-		<!-- <property name="activatedLAP">eu.excitementproject.eop.lap.dkpro.TreeTaggerEN</property> -->
-		<property name="activatedLAP">eu.excitementproject.eop.lap.dkpro.OpenNLPTaggerEN</property>
+		<property name="activatedLAP">eu.excitementproject.eop.lap.dkpro.TreeTaggerEN</property> 
+		<!-- <property name="activatedLAP">eu.excitementproject.eop.lap.dkpro.OpenNLPTaggerEN</property>  -->
 	</section>
 	
 	
@@ -52,8 +52,8 @@ a configuration file means allowing other users to replicate the same experiment
 	    <!-- Do not consider the stop words: [true|false] -->
 		<property name="stopWordRemoval">true</property>
 	    
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|wordnet,wikipedia] -->
-	    <property name="instances">basic</property>
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia] -->
+	    <property name="instances">wikipedia</property>
 	    
 	     <!-- This configuration does not use any external resources -->
 		<subsection name="basic"/>
@@ -61,7 +61,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses WordNet as an external resources -->
 		<subsection name="wordnet">
 			<!-- path of the WordNet files -->
-			<property name="path">/opt/share/eop-resources/ontologies/EnglishWordNet-dict/</property>
+			<property name="path">/home/scolombo/Excitement/eop-resources-1.1.1/ontologies/EnglishWordNet-dict/</property>
 		</subsection>
 		
 		<!-- This configuration uses Wikipedia as an external resources -->
@@ -70,6 +70,12 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbconnection">jdbc:mysql://nathrezim:3306/wikikb</property>
 			<property name="dbuser">root</property>
 			<property name="dbpasswd">nat_2k12</property>
+		</subsection>
+
+		<!-- This configuration uses Catvar as an external resources -->
+		<subsection name="catvar">
+			<!-- path of the Catvar file -->
+			<property name="path">/home/scolombo/Excitement/CatVar-21/CatVar/catvar21</property>
 		</subsection>
 		
 	</section>	
@@ -80,8 +86,8 @@ a configuration file means allowing other users to replicate the same experiment
 	    <!-- Do not consider the stop words: [true|false] -->
 		<property name="stopWordRemoval">true</property>
 	    
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|wordnet,wikipedia] -->
-	    <property name="instances">basic</property>
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia etc.] -->
+	    <property name="instances">catvar</property>
 	    
 	     <!-- This configuration does not use any external resources -->
 		<subsection name="basic"/>
@@ -89,7 +95,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses WordNet as an external resources -->
 		<subsection name="wordnet">
 			<!-- path of the WordNet files -->
-			<property name="path">/opt/share/eop-resources/ontologies/EnglishWordNet-dict/</property>
+			<property name="path">eop-resources-1.1.1/ontologies/EnglishWordNet-dict/</property>
 		</subsection>
 		
 		<!-- This configuration uses Wikipedia as an external resources -->
@@ -98,6 +104,12 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbconnection">jdbc:mysql://nathrezim:3306/wikikb</property>
 			<property name="dbuser">root</property>
 			<property name="dbpasswd">nat_2k12</property>
+		</subsection>
+		
+		<!-- This configuration uses Catvar as an external resources -->
+		<subsection name="catvar">
+			<!-- path of the Catvar file -->
+			<property name="path">/home/scolombo/Excitement/CatVar-21/CatVar/catvar21</property>
 		</subsection>
 		
 	</section>	
@@ -113,14 +125,14 @@ a configuration file means allowing other users to replicate the same experiment
 		<property name="substitute">1.0</property>
 		
 		<!-- <property name="trainDir">/tmp/</property> -->
-		<property name="trainDir">/tmp/ENG/dev/</property> 
+		<property name="trainDir">/tmp/EN/dev/</property> 
 		<!-- <property name="testDir">/tmp/</property> -->
-		<property name="testDir">/tmp/ENG/test</property>
+		<property name="testDir">/tmp/EN/test/</property>
 		<!-- measure to be optimized: [accuracy|f1] -->
 		<property name="measure">accuracy</property>
 		<!-- component to be used by EDA: [FixedWeightTokenEditDistance|FixedWeightLemmaEditDistance] 
 		FixedWeightLemmaEditDistance can be used only when the preprocessing pipeline provides lemmas-->
-	    <property name="components">eu.excitementproject.eop.core.component.distance.FixedWeightTokenEditDistance</property>
+	    <property name="components">eu.excitementproject.eop.core.component.distance.FixedWeightLemmaEditDistance</property>
 	
 	</section>
 	
@@ -130,9 +142,9 @@ a configuration file means allowing other users to replicate the same experiment
 	<section name="model">
 	
 	    <!-- threshold -->
-		<property name="threshold">0.5741758241758221</property>
+		<property name="threshold">0.5738636363636429</property>
 		<!-- the accuracy obtained on the training data set -->
-		<property name="trainingAccuracy">0.6575</property>
+		<property name="trainingAccuracy">0.66375</property>
 		
 	</section>
 		
