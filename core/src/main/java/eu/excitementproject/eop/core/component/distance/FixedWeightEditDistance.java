@@ -103,6 +103,8 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 
     static Logger logger = Logger.getLogger(FixedWeightEditDistance.class.getName());
     
+    private int relnum;
+    
     
     /**
      * Construct a fixed weight edit distance with the following constant
@@ -117,6 +119,8 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
     	this.mInsertWeight = 1.0;
     	this.mSubstituteWeight = 1.0;
     	this.lexR = new ArrayList<LexicalResource>();
+    	this.relnum = 0; 
+    	
         
     }
 
@@ -235,9 +239,16 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 	    		}
     			
 	    		else if (instance.equals("catvar")) {
-	    	    	NameValueTable instanceNameValueTable = config.getSubSection(this.getClass().getCanonicalName(), instance);
-	    			String cvfile = instanceNameValueTable.getString("path");
-	    	    	initializeEnglishCatvar(cvfile);
+	    			NameValueTable instanceNameValueTable = config.getSubSection(this.getClass().getCanonicalName(), instance);
+    				String cvfile = instanceNameValueTable.getString("path");
+	    			
+	    			if (language.equals("EN")){
+	    				
+	    				initializeEnglishCatvar(cvfile);
+	    			}
+	    			else if (language.equals("IT")){
+	    				initializeMorphoDerivIt(cvfile);
+	    			}
 	    		}
 	    		
     		}
@@ -308,6 +319,7 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
     	else {
         	logger.info("Stop word removal deactivated.");
     	}
+	    this.relnum=0;
 	    	
 	    if (resources != null && resources.containsKey("wordnet")) {
 	    			
@@ -378,9 +390,16 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
     	}
 		
 		if (resources != null && resources.containsKey("catvar")){
-			
-	    	String cvfile = resources.get("catvar");	    	
-	    	initializeEnglishCatvar(cvfile);
+			String cvfile = resources.get("catvar");
+			if (language.equals("EN")){
+;
+				    	initializeEnglishCatvar(cvfile);
+			}
+			else if (language.equals("IT")){
+					
+				initializeMorphoDerivIt(cvfile);
+				
+			}
 			
 		}
     		
@@ -900,6 +919,25 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
     	logger.info("done.");
 		
 	}
+    
+    private void initializeMorphoDerivIt(String cvpath) {
+		logger.info("Looking for MorphoDeriv at " + cvpath);
+		
+		File cvfile = new File(cvpath);
+		
+		try {
+			@SuppressWarnings("rawtypes")
+			LexicalResource resource = new CatvarLexicalResource(cvfile);
+			lexR.add(resource);
+			
+		} catch (LexicalResourceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+    	logger.info("done.");
+		
+	}
 
     
     
@@ -929,7 +967,9 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 			for (int i = 0; i < lexR.size(); i++) {
 				rules = lexR.get(i).getRules(leftLemma, leftPos, rightLemma, rightPos);
 				if (rules != null && rules.size() > 0) {
-					return true;
+				//	return true;
+					relnum++;
+					logger.info(relnum + " : " + leftLemma + " - " + rightLemma);
 				}
 			}
 			
