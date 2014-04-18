@@ -42,6 +42,7 @@ import eu.excitementproject.eop.core.component.lexicalknowledge.wikipedia.it.Wik
 import eu.excitementproject.eop.core.component.lexicalknowledge.wordnet.WordnetLexicalResource;
 import eu.excitementproject.eop.core.component.lexicalknowledge.catvar.CatvarLexicalResource;
 import eu.excitementproject.eop.core.component.lexicalknowledge.germanet.GermaNetWrapper;
+import eu.excitementproject.eop.core.component.lexicalknowledge.morphoderivit.MorphoderivitLexicalResource;
 import eu.excitementproject.eop.core.utilities.dictionary.wordnet.WordNetRelation;
 import eu.excitementproject.eop.common.utilities.Utils;
 
@@ -927,7 +928,7 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 		
 		try {
 			@SuppressWarnings("rawtypes")
-			LexicalResource resource = new CatvarLexicalResource(cvfile);
+			LexicalResource resource = new MorphoderivitLexicalResource(cvfile);
 			lexR.add(resource);
 			
 		} catch (LexicalResourceException e) {

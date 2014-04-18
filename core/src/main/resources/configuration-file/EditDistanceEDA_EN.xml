@@ -75,7 +75,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses Catvar as an external resources -->
 		<subsection name="catvar">
 			<!-- path of the Catvar file -->
-			<property name="path">/home/scolombo/Excitement/CatVar-21/CatVar/catvar21</property>
+			<property name="path">/path/to/catvar</property>
 		</subsection>
 		
 	</section>	
@@ -109,7 +109,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses Catvar as an external resources -->
 		<subsection name="catvar">
 			<!-- path of the Catvar file -->
-			<property name="path">/home/scolombo/Excitement/CatVar-21/CatVar/catvar21</property>
+			<property name="path">/path/to/catvar</property>
 		</subsection>
 		
 	</section>	

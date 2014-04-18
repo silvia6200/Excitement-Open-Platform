@@ -61,7 +61,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses WordNet as an external resources -->
 		<subsection name="wordnet">
 			<!-- path of the WordNet files -->
-			<property name="path">/tmp/eop-resources-1.0.2/IT/wnita</property>
+			<property name="path">eop-resources-1.1.1/IT/wnita</property>
 			<!-- for the DB version of itaWN: ../core/src/main/resources/configuration-file/ -->
 		</subsection>
 		
@@ -72,6 +72,13 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbuser">root</property>
 			<property name="dbpasswd">nat_2k12</property>
 		</subsection>
+
+		<!-- This configuration uses MorphoDerivIT as an external resources -->
+		<subsection name="morphoderivit">
+			<!-- path of the MorphoDerivIT file -->
+			<property name="path">/path/to/morphoderiv</property>
+		</subsection>
+		
 		
 	</section>	
 	
@@ -91,7 +98,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses WordNet as an external resources -->
 		<subsection name="wordnet">
 			<!-- path of the WordNet files -->
-			<property name="path">/tmp/eop-resources-1.0.2/IT/wnita</property>
+			<property name="path">eop-resources-1.1.1/IT/wnita</property>
 		</subsection>
 		
 		<!-- This configuration uses Wikipedia as an external resources -->
@@ -100,6 +107,12 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbconnection">jdbc:mysql://nathrezim:3306/wikilexresita</property>
 			<property name="dbuser">root</property>
 			<property name="dbpasswd">nat_2k12</property>
+		</subsection>
+
+		<!-- This configuration uses MorphoDerivIT as an external resources -->
+		<subsection name="morphoderivit">
+			<!-- path of the MorphoDerivIT file -->
+			<property name="path">/path/to/morphoderiv</property>
 		</subsection>
 		
 	</section>	
@@ -115,9 +128,9 @@ a configuration file means allowing other users to replicate the same experiment
 		<property name="substitute">1.0</property>
 		
 		<!-- <property name="trainDir">/tmp/</property> -->
-		<property name="trainDir">/tmp/ITA/dev/</property>
+		<property name="trainDir">/tmp/IT/dev/</property>
 		<!-- <property name="testDir">/tmp/</property> -->
-		<property name="testDir">/tmp/ITA/test/</property>
+		<property name="testDir">/tmp/IT/test/</property>
 		<!-- measure to be optimized: [accuracy|f1] -->
 		<property name="measure">accuracy</property>
 		<!-- component to be used by EDA: [FixedWeightTokenEditDistance|FixedWeightLemmaEditDistance] 

@@ -73,6 +73,13 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbpasswd">nat_2k12</property>
 		</subsection>
 		
+		<!-- This configuration uses MorphoDerivIT as an external resources -->
+		<subsection name="morphoderivit">
+			<!-- path of the MorphoDerivIT file -->
+			<property name="path">/path/to/morphoderiv</property>
+		</subsection>
+		
+		
 	</section>	
 	
 	<!-- FixedWeightLemmaEditDistance uses the lemma to calculate the distance between each pair T-H -->
@@ -100,6 +107,12 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbconnection">jdbc:mysql://nathrezim:3306/wikilexresita</property>
 			<property name="dbuser">root</property>
 			<property name="dbpasswd">nat_2k12</property>
+		</subsection>
+		
+		<!-- This configuration uses MorphoDerivIT as an external resources -->
+		<subsection name="morphoderivit">
+			<!-- path of the MorphoDerivIT file -->
+			<property name="path">/path/to/morphoderiv</property>
 		</subsection>
 		
 	</section>	
