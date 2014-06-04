@@ -562,6 +562,7 @@ public class EditDistanceEDA<T extends TEDecision>
 				}
 				
 				JCas cas = PlatformCASProber.probeXmi(xmi, null);
+				System.out.println(xmi.getName());
 					
 				getDistanceValues(cas, distanceValueList);
 				getEntailmentAnnotation(cas, entailmentValueList);

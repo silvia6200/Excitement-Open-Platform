@@ -786,6 +786,7 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
     	
 			relations.add(WordNetRelation.SYNONYM);
 			relations.add(WordNetRelation.HYPERNYM);
+			//relations.add(WordNetRelation.DERIVATIONALLY_RELATED);
 			
 			@SuppressWarnings("rawtypes")
 			LexicalResource resource = new WordnetLexicalResource(new File(path), false, false, relations, 3);
@@ -968,9 +969,9 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 			for (int i = 0; i < lexR.size(); i++) {
 				rules = lexR.get(i).getRules(leftLemma, leftPos, rightLemma, rightPos);
 				if (rules != null && rules.size() > 0) {
-				//	return true;
-					relnum++;
-					logger.info(relnum + " : " + leftLemma + " - " + rightLemma);
+					return true;
+//					relnum++;
+//					logger.info(relnum + " : " + leftLemma + " - " + rightLemma);
 				}
 			}
 			
