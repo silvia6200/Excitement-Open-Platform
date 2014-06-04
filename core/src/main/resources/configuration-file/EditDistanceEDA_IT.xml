@@ -73,8 +73,8 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbpasswd">nat_2k12</property>
 		</subsection>
 
-		<!-- This configuration uses MorphoDerivIT as an external resources -->
-		<subsection name="morphoderivit">
+		<!-- This configuration uses catvar/MorphoDerivIT as an external resources -->
+		<subsection name="catvar">
 			<!-- path of the MorphoDerivIT file -->
 			<property name="path">/path/to/morphoderiv</property>
 		</subsection>
@@ -109,8 +109,8 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbpasswd">nat_2k12</property>
 		</subsection>
 
-		<!-- This configuration uses MorphoDerivIT as an external resources -->
-		<subsection name="morphoderivit">
+		<!-- This configuration uses catvar/MorphoDerivIT as an external resources -->
+		<subsection name="catvar">
 			<!-- path of the MorphoDerivIT file -->
 			<property name="path">/path/to/morphoderiv</property>
 		</subsection>

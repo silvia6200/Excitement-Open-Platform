@@ -969,9 +969,10 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 			for (int i = 0; i < lexR.size(); i++) {
 				rules = lexR.get(i).getRules(leftLemma, leftPos, rightLemma, rightPos);
 				if (rules != null && rules.size() > 0) {
+					relnum++;
+					logger.info(relnum + " : " + leftLemma + " - " + rightLemma);
 					return true;
-//					relnum++;
-//					logger.info(relnum + " : " + leftLemma + " - " + rightLemma);
+
 				}
 			}
 			
