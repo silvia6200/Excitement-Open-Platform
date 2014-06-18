@@ -44,12 +44,8 @@ import eu.excitementproject.eop.core.component.lexicalknowledge.wikipedia.WikiEx
 import eu.excitementproject.eop.core.component.lexicalknowledge.wikipedia.WikiLexicalResource;
 import eu.excitementproject.eop.core.component.lexicalknowledge.wikipedia.it.WikiLexicalResourceIT;
 import eu.excitementproject.eop.core.component.lexicalknowledge.wordnet.WordnetLexicalResource;
-<<<<<<< HEAD
 import eu.excitementproject.eop.core.component.lexicalknowledge.catvar.CatvarLexicalResource;
-import eu.excitementproject.eop.core.component.lexicalknowledge.germanet.GermaNetWrapper;
 import eu.excitementproject.eop.core.component.lexicalknowledge.morphoderivit.MorphoderivitLexicalResource;
-=======
->>>>>>> upstream/master
 import eu.excitementproject.eop.core.utilities.dictionary.wordnet.WordNetRelation;
 
 
