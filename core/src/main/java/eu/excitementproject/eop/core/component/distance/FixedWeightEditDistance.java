@@ -295,10 +295,18 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 	    			
 	    			if (language.equals("EN")){
 	    				
-	    				initializeEnglishCatvar(cvfile);
+	    				try {
+							initializeEnglishCatvar(cvfile);
+						} catch (LexicalResourceException e) {
+				    		throw new ComponentException(e.getMessage());
+						}
 	    			}
 	    			else if (language.equals("IT")){
-	    				initializeMorphoDerivIt(cvfile);
+	    				try {
+							initializeMorphoDerivIt(cvfile);
+						} catch (LexicalResourceException e) {
+			    			throw new ComponentException(e.getMessage());
+						}
 	    			}
 	    		}
 	    		
@@ -461,11 +469,19 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 			String cvfile = resources.get("catvar");
 			if (language.equals("EN")){
 ;
-				    	initializeEnglishCatvar(cvfile);
+				    	try {
+							initializeEnglishCatvar(cvfile);
+						} catch (LexicalResourceException e) {
+				    		throw new ComponentException(e.getMessage());
+						}
 			}
 			else if (language.equals("IT")){
 					
-				initializeMorphoDerivIt(cvfile);
+				try {
+					initializeMorphoDerivIt(cvfile);
+				} catch (LexicalResourceException e) {
+	    			throw new ComponentException(e.getMessage());
+				}
 				
 			}
 			
@@ -997,40 +1013,44 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
      * Initialize English Catvar
      * 
      * @param cvpath
+     * @throws LexicalResourceException 
      */
-    private void initializeEnglishCatvar(String cvpath) {
-		logger.info("Looking for Catvar at " + cvpath);
+    private void initializeEnglishCatvar(String cvpath) throws LexicalResourceException {
+		
+    	logger.info("Looking for Catvar at " + cvpath);
+		
+		try{
 		
 		File cvfile = new File(cvpath);
+
+		@SuppressWarnings("rawtypes")
+		LexicalResource resource = new CatvarLexicalResource(cvfile);
+		lexR.add(resource);
 		
-		try {
-			@SuppressWarnings("rawtypes")
-			LexicalResource resource = new CatvarLexicalResource(cvfile);
-			lexR.add(resource);
-			
-		} catch (LexicalResourceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	    } catch (Exception e) {
+			throw new LexicalResourceException(e.getMessage());
 		}
 		
+
     	logger.info("done.");
 		
 	}
     
-    private void initializeMorphoDerivIt(String cvpath) {
+    private void initializeMorphoDerivIt(String cvpath) throws LexicalResourceException {
 		logger.info("Looking for MorphoDeriv at " + cvpath);
 		
-		File cvfile = new File(cvpath);
+		try {		
+			
+			File cvfile = new File(cvpath);
 		
-		try {
 			@SuppressWarnings("rawtypes")
 			LexicalResource resource = new MorphoderivitLexicalResource(cvfile);
 			lexR.add(resource);
 			
-		} catch (LexicalResourceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new LexicalResourceException(e.getMessage());
 		}
+    		
 		
     	logger.info("done.");
 		

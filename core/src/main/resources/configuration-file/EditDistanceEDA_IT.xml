@@ -86,7 +86,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses catvar/MorphoDerivIT as an external resources -->
 		<subsection name="catvar">
 			<!-- path of the MorphoDerivIT file -->
-			<property name="path">/path/to/morphoderiv</property>
+			<property name="path">eop-resources-1.1.1/ontologies/morphoderivit/</property>
 		</subsection>
 		
 		
@@ -132,7 +132,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- This configuration uses catvar/MorphoDerivIT as an external resources -->
 		<subsection name="catvar">
 			<!-- path of the MorphoDerivIT file -->
-			<property name="path">/path/to/morphoderiv</property>
+			<property name="path">eop-resources-1.1.1/ontologies/morphoderivit/</property>
 		</subsection>
 		
 	</section>	
