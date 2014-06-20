@@ -468,9 +468,10 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 		if (resources != null && resources.containsKey("catvar")){
 			String cvfile = resources.get("catvar");
 			if (language.equals("EN")){
-;
 				    	try {
+				    		
 							initializeEnglishCatvar(cvfile);
+							
 						} catch (LexicalResourceException e) {
 				    		throw new ComponentException(e.getMessage());
 						}
@@ -478,7 +479,9 @@ public abstract class FixedWeightEditDistance implements DistanceCalculation {
 			else if (language.equals("IT")){
 					
 				try {
+					
 					initializeMorphoDerivIt(cvfile);
+					
 				} catch (LexicalResourceException e) {
 	    			throw new ComponentException(e.getMessage());
 				}

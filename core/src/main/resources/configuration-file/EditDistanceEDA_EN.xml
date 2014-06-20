@@ -62,7 +62,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- Normalization type for the distance: [default|long] -->
 		<property name="normalizationType">default</property>
 	    
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia] -->
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia|wordnet,catvar|wikipedia,catvar|wordent,wikipedia,catvar] -->
 	    <property name="instances">wikipedia</property>
 	    
 	     <!-- This configuration does not use any external resources -->
@@ -95,7 +95,7 @@ a configuration file means allowing other users to replicate the same experiment
 	    
 	     <!-- Do not consider the stop words: [POS|LIST|POS,LIST|false] -->
 	     <!-- POS eliminate only some part of speech, LIST eliminate only the words listed in a file -->
-		<property name="stopWordRemoval">POS</property>
+		<property name="stopWordRemoval">POS,LIST</property>
 
 		<!-- Do not consider the case: [true|false] -->
 		<property name="ignoreCase">true</property>
@@ -104,9 +104,9 @@ a configuration file means allowing other users to replicate the same experiment
 		<property name="pathStopWordFile">../core/src/main/resources/external-data/edit/stopwords_EN.txt</property>
 
 		<!-- Normalization type for the distance: [default|long] -->
-		<property name="normalizationType">default</property>
+		<property name="normalizationType">long</property>
 	    
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia etc.] -->
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia|wordnet,catvar|wikipedia,catvar|wordent,wikipedia,catvar] -->
 	    <property name="instances">catvar</property>
 	    
 	     <!-- This configuration does not use any external resources -->

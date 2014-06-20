@@ -62,7 +62,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- Normalization type for the distance: [default|long] -->
 		<property name="normalizationType">default</property>
 	    
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|wordnet,wikipedia] -->
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia|wordnet,catvar|wikipedia,catvar|wordent,wikipedia,catvar] -->
 	    <property name="instances">basic</property>
 	    
 	     <!-- This configuration does not use any external resources -->
@@ -80,6 +80,12 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbconnection">jdbc:mysql://nathrezim:3306/wikikb</property>
 			<property name="dbuser">root</property>
 			<property name="dbpasswd">nat_2k12</property>
+		</subsection>
+		
+		<!-- This configuration uses Catvar as an external resources -->
+		<subsection name="catvar">
+			<!-- path of the Catvar file -->
+			<property name="path">eop-resources-1.1.1/ontologies/catvar/</property>
 		</subsection>
 		
 	</section>	
@@ -100,7 +106,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- Normalization type for the distance: [default|long] -->
 		<property name="normalizationType">default</property>
 	    
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|wordnet,wikipedia] -->
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia|wordnet,catvar|wikipedia,catvar|wordent,wikipedia,catvar] -->
 		<subsection name="basic"/>
 		
 		<!-- This configuration uses WordNet as an external resources -->
@@ -115,6 +121,12 @@ a configuration file means allowing other users to replicate the same experiment
 			<property name="dbconnection">jdbc:mysql://nathrezim:3306/wikikb</property>
 			<property name="dbuser">root</property>
 			<property name="dbpasswd">nat_2k12</property>
+		</subsection>
+		
+		<!-- This configuration uses Catvar as an external resources -->
+		<subsection name="catvar">
+			<!-- path of the Catvar file -->
+			<property name="path">eop-resources-1.1.1/ontologies/catvar/</property>
 		</subsection>
 		
 	</section>	

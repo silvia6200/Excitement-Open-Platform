@@ -62,7 +62,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- Normalization type for the distance: [default|long] -->
 		<property name="normalizationType">default</property>
 	    	
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|wordnet,wikipedia] -->
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia|wordnet,catvar|wikipedia,catvar|wordent,wikipedia,catvar] -->
 	    <property name="instances">basic</property>
 	    
 	     <!-- This configuration does not use any external resources -->
@@ -108,7 +108,7 @@ a configuration file means allowing other users to replicate the same experiment
 		<!-- Normalization type for the distance: [default|long] -->
 		<property name="normalizationType">default</property>
 	    	
-	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|wordnet,wikipedia]
+	    <!-- The configuration to be used by the component: [basic|wordnet|wikipedia|catvar|wordnet,wikipedia|wordnet,catvar|wikipedia,catvar|wordent,wikipedia,catvar]
 	    The use of wikipedia for Italian makes the EDA very slow.  -->
 	    <property name="instances">basic</property>
 	    
